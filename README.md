@@ -2,6 +2,7 @@
 
 Real distributed attack toolkit. C2 server coordinates remote bot nodes; each bot runs the same binary in `--connect` mode.
 
+ THIS IS FOR EDUCATIONAL PURPOSES ONLY ANY UNAUTHERIZED OR UNETHICAL USE IS ON THE USER NOT DEVELOPER YU HAVE BEEN WARNED
 ## Quick start
 
 ```
