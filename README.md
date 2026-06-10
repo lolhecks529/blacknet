@@ -149,3 +149,32 @@ update.sh         — GitHub release checker
 - Anti-debug ptrace check on startup
 - Passcode prompt on startup
 - GUI mode: `./blacknet g` (requires display)
+
+How to Run the GUI Version
+The GUI needs Qt5 libraries. On Linux:
+# Install Qt5 dev libs
+sudo apt install qtbase5-dev qt5-qmake
+
+# Build the GUI binary
+cd blacknet/linux
+make clean && make ENABLE_GUI=1
+
+# Run it
+./blacknet gui
+Or just pass gui as the first argument:
+./blacknet gui
+./blacknet g
+./blacknet --gui
+Note: The GUI is a compile-time option (#ifdef ENABLE_GUI). The current Makefile doesn't have a separate GUI target — you'd need to add -DENABLE_GUI to CFLAGS and link Qt5. If you want me to add a GUI build target to the Makefile, let me know.
+On Windows: GUI is not available (the Windows version blacknet_win.cpp is CLI only, as noted in the help text).
+What You Got
+Feature	Status
+SHA-256 passcode lockout (3 attempts)	Done
+Discord contact: 5296	Done
+26 attack protocols	Done
+Auto-update (--update)	Done
+Credits tab in GUI (made by lolhecksv2)	Done
+Windows version with limitations shown	Done
+Linux folder + Windows folder	Done
+GitHub Actions Discord webhook	Done
+
