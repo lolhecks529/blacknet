@@ -1,0 +1,19 @@
+CXX      = g++
+CXXFLAGS = -std=c++17 -O2 -Wall -I./include
+LDFLAGS  = -lws2_32 -lssl -lcrypto -lcurl -lpthread -lz
+OBJS     = blacknet_win.o AttackEngine.o ProtocolHandler.o GeoLocator.o ProxyManager.o PacketBuilder.o BotManager.o Utilities.o
+TARGET   = blacknet_win.exe
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+	strip $@
+
+%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+clean:
+	del /f /q *.o $(TARGET) 2>nul
+
+.PHONY: all clean
